@@ -48,10 +48,10 @@ function sensorIds(config) {
   const base = config.entity.replace(/^fan\./, "").replace(/_air_purifier$/, "");
   return {
     fan:    config.entity,
-    pm25:   config.entity_pm25        || `sensor.${base}_pm2_5`,
-    hum:    config.entity_humidity    || `sensor.${base}_humidity`,
-    temp:   config.entity_temperature || `sensor.${base}_temperature`,
-    filter: config.entity_filter      || `sensor.${base}_filter_life`,
+    pm25:   config.entity_pm25        || `sensor.${base}_pm25_density`,
+    hum:    config.entity_humidity    || `sensor.${base}_relative_humidity`,
+    temp:   config.entity_temperature || `sensor.${base}_indoor_temperature`,
+    filter: config.entity_filter      || `sensor.${base}_filter_life_level`,
   };
 }
 
