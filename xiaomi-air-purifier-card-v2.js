@@ -181,13 +181,17 @@ const STYLES = `
   .pu {
     position: relative; z-index: 3;
     display: flex; flex-direction: column; align-items: center;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,.5)) drop-shadow(0 12px 28px rgba(0,0,0,.4));
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.55));
+  }
+  .pu-top, .pu-body, .pu-base {
+    width: 64px;
+    box-sizing: border-box;
   }
   .pu-top {
-    width: 64px; height: 44px;
+    height: 44px;
     background: linear-gradient(170deg,#23263a 0%,#1c1f2e 100%);
-    border-radius: 12px 12px 2px 2px;
-    border: 1px solid rgba(255,255,255,0.09); border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px 12px 0 0;
+    border: 1px solid rgba(255,255,255,0.09);
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
   }
@@ -208,9 +212,11 @@ const STYLES = `
   @keyframes fspin { to { transform:rotate(360deg); } }
 
   .pu-body {
-    width:64px; height:72px;
+    height: 72px;
     background: linear-gradient(175deg,#1d2031 0%,#181b28 50%,#141726 100%);
-    border:1px solid rgba(255,255,255,0.07); border-top:none; border-bottom:none;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: none;
+    border-bottom: none;
     position:relative; overflow:hidden;
     display:flex; align-items:flex-start; justify-content:center;
   }
@@ -240,15 +246,16 @@ const STYLES = `
   @keyframes lpulse { 0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6} }
 
   .pu-base {
-    width:64px; height:10px;
+    height: 12px;
     background: linear-gradient(180deg,#161926 0%,#11141f 100%);
-    border-radius:0 0 10px 10px;
-    border:1px solid rgba(255,255,255,0.06); border-top:none;
-    display:flex; align-items:flex-end; justify-content:space-between; padding:0 12px 3px;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: none;
+    display:flex; align-items:flex-end; justify-content:center; gap:14px; padding:0 0 2px;
   }
   .pu-foot { width:8px; height:3px; background:rgba(255,255,255,0.06); border-radius:2px; }
   .pu-led {
-    width:48px; height:1.5px; margin-top:6px; border-radius:1px;
+    width:44px; height:1.5px; margin-top:6px; border-radius:1px;
     background: linear-gradient(90deg,transparent 0%,var(--accent) 30%,rgba(255,255,255,.8) 50%,var(--accent) 70%,transparent 100%);
     box-shadow:0 0 8px var(--accent),0 0 20px rgba(var(--rgb),.3);
     animation:lshine 3s ease-in-out infinite;
