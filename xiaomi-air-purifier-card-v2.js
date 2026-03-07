@@ -240,13 +240,13 @@ const STYLES = `
   @keyframes lpulse { 0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6} }
 
   .pu-base {
-    width:72px; height:14px;
+    width:72px; height:10px;
     background: linear-gradient(180deg,#161926 0%,#11141f 100%);
     border-radius:0 0 10px 10px;
     border:1px solid rgba(255,255,255,0.06); border-top:none;
     display:flex; align-items:flex-end; justify-content:space-between; padding:0 12px 3px;
   }
-  .pu-foot { width:10px; height:3px; background:rgba(255,255,255,0.06); border-radius:2px; }
+  .pu-foot { width:8px; height:3px; background:rgba(255,255,255,0.06); border-radius:2px; }
   .pu-led {
     width:52px; height:1.5px; margin-top:6px; border-radius:1px;
     background: linear-gradient(90deg,transparent 0%,var(--accent) 30%,rgba(255,255,255,.8) 50%,var(--accent) 70%,transparent 100%);
@@ -375,9 +375,15 @@ class XiaomiAirPurifierCard extends HTMLElement {
     const rgb       = this._config.color  ? "56,189,248" : (isOn ? aqi.rgb : "55,65,81");
     const name      = this._config.name  || fanState.attributes.friendly_name || ids.fan;
     const fanDur    = fanDuration(fanState);
-    const fillDash  = isOn && filterPct !== null
-      ? (ARC * Math.max(0, Math.min(100, filterPct)) / 100).toFixed(1) + " " + CIRC.toFixed(1)
+    // Gauge = AQI, scaled 0-150 (>150 = full arc, already red/hazardous)
+    const aqiPct    = pm25Val !== null ? Math.min(pm25Val / 150 * 100, 100) : 0;
+    const fillDash  = isOn && pm25Val !== null
+      ? (ARC * aqiPct / 100).toFixed(1) + " " + CIRC.toFixed(1)
       : "0 " + CIRC.toFixed(1);
+
+
+
+
 
     const modeIcons = { Auto: "⟳", Sleep: "☽", Favorite: "★" };
 
@@ -413,7 +419,7 @@ class XiaomiAirPurifierCard extends HTMLElement {
           <circle class="r-fill" cx="120" cy="120" r="104" style="stroke-dasharray:${fillDash}"/>
           <g class="ring-pct-group">
             <text class="ring-pct" x="120" y="232" text-anchor="middle">
-              ${filterPct !== null ? filterPct + "%" : "—"}
+              ${pm25Val !== null ? pm25Val + " AQI" : "—"}
             </text>
           </g>
         </svg>
