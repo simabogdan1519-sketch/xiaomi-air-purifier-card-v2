@@ -184,7 +184,7 @@ const STYLES = `
     filter: drop-shadow(0 4px 8px rgba(0,0,0,.5)) drop-shadow(0 12px 28px rgba(0,0,0,.4));
   }
   .pu-top {
-    width: 72px; height: 44px;
+    width: 64px; height: 44px;
     background: linear-gradient(170deg,#23263a 0%,#1c1f2e 100%);
     border-radius: 12px 12px 2px 2px;
     border: 1px solid rgba(255,255,255,0.09); border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -208,7 +208,7 @@ const STYLES = `
   @keyframes fspin { to { transform:rotate(360deg); } }
 
   .pu-body {
-    width:72px; height:72px;
+    width:64px; height:72px;
     background: linear-gradient(175deg,#1d2031 0%,#181b28 50%,#141726 100%);
     border:1px solid rgba(255,255,255,0.07); border-top:none; border-bottom:none;
     position:relative; overflow:hidden;
@@ -240,7 +240,7 @@ const STYLES = `
   @keyframes lpulse { 0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6} }
 
   .pu-base {
-    width:72px; height:10px;
+    width:64px; height:10px;
     background: linear-gradient(180deg,#161926 0%,#11141f 100%);
     border-radius:0 0 10px 10px;
     border:1px solid rgba(255,255,255,0.06); border-top:none;
@@ -248,7 +248,7 @@ const STYLES = `
   }
   .pu-foot { width:8px; height:3px; background:rgba(255,255,255,0.06); border-radius:2px; }
   .pu-led {
-    width:52px; height:1.5px; margin-top:6px; border-radius:1px;
+    width:48px; height:1.5px; margin-top:6px; border-radius:1px;
     background: linear-gradient(90deg,transparent 0%,var(--accent) 30%,rgba(255,255,255,.8) 50%,var(--accent) 70%,transparent 100%);
     box-shadow:0 0 8px var(--accent),0 0 20px rgba(var(--rgb),.3);
     animation:lshine 3s ease-in-out infinite;
