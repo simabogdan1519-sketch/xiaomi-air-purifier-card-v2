@@ -72,16 +72,7 @@ const STYLES = `
     transition: transform 0.4s cubic-bezier(.22,.68,0,1.2), box-shadow 0.4s ease;
     box-sizing: border-box;
   }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: -40px; left: 50%; transform: translateX(-50%);
-    width: 260px; height: 260px;
-    background: radial-gradient(circle, rgba(var(--rgb),0.07) 0%, transparent 65%);
-    pointer-events: none;
-    transition: opacity 0.5s;
-  }
-  .card.off::before { opacity: 0; }
+  .card::before { content: none; }
 
   /* TOP BAR */
   .top-bar {
@@ -130,6 +121,17 @@ const STYLES = `
     display: flex; justify-content: center; align-items: center;
     height: 230px; position: relative; margin-bottom: 14px;
   }
+  .vis::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(var(--rgb),0.1) 0%, transparent 65%);
+    pointer-events: none;
+    transition: opacity 0.5s;
+    z-index: 1;
+  }
+  .card.off .vis::before { opacity: 0; }
   .ring-svg {
     position: absolute; width: 240px; height: 240px;
     top: 50%; left: 50%;
