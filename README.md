@@ -111,9 +111,7 @@ The LCD on the device illustration cycles through three pages using the ← → 
 
 ## Tested On
 
-- Xiaomi Air Purifier 4 Pro (`zhimi.airp.mb5`)
-- Xiaomi Air Purifier 3H (`zhimi.airpurifier.mb3`)
-- Xiaomi Air Purifier MC2 (`zhimi.airpurifier.mc2`)
+- Xiaomi Air Purifier 2H
 
 ---
 
