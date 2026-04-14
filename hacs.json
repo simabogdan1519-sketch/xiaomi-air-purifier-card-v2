@@ -1,7 +1,6 @@
 {
-  "name": "Xiaomi Air Purifier Card",
-  "description": "Animated Lovelace card for Xiaomi MIoT air purifiers",
+  "name": "Xiaomi Air Purifier Card v2",
   "render_readme": true,
-  "domains": ["fan"],
-  "iot_class": "local_polling"
+  "filename": "xiaomi-air-purifier-card-v2.js",
+  "content_in_root": false
 }
