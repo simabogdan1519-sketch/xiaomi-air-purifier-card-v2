@@ -349,7 +349,7 @@ class XiaomiAirPurifierCardV2 extends HTMLElement {
       vy:    -(0.8 + Math.random() * 1.2) * speed,
       r:     1.2 + Math.random() * 2.5,
       life:  1.0,
-      decay: (0.002 + Math.random() * 0.003) * (0.25 + speed * 0.35),
+      decay: (0.0015 + Math.random() * 0.002) * (0.2 + speed * 0.3),
       color: col,
     });
   }
