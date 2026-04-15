@@ -150,13 +150,11 @@ const STYLES = `
   /* SVG overlay — positioned over the screen area of the PNG */
   .screen-overlay {
     position: absolute;
-    /* Percentages relative to the PNG dimensions (330x534) */
-    /* Screen area: ~x=120-222, y=198-280 in 330x534 image */
-    /* As percentages: left=36.4%, top=37.1%, width=30.9%, height=15.4% */
-    left: 35%;
-    top: 35.5%;
-    width: 32%;
-    height: 17%;
+    /* Screen area on new images (~180x270): x=80-130, y=50-125 */
+    left: 43%;
+    top: 18%;
+    width: 30%;
+    height: 30%;
     pointer-events: all;
     z-index: 3;
   }
@@ -343,15 +341,15 @@ class XiaomiAirPurifierCardV2 extends HTMLElement {
     const sl = pr.left - vr.left, st = pr.top - vr.top;
     const sw = pr.width, sh = pr.height;
 
-    // Spawn from ventilation slats
+    // Spawn from top of device, float upward
     this._particles.push({
-      x:     sl + sw * (0.2 + Math.random() * 0.6),
-      y:     st + sh * 0.10 + Math.random() * sh * 0.06,
-      vx:    (Math.random() - 0.5) * 0.5 * speed,
-      vy:    -(0.5 + Math.random() * 0.9) * speed,
-      r:     1.2 + Math.random() * 2.2,
+      x:     sl + sw * (0.15 + Math.random() * 0.7),
+      y:     st - Math.random() * 8,
+      vx:    (Math.random() - 0.5) * 0.6 * speed,
+      vy:    -(0.6 + Math.random() * 1.0) * speed,
+      r:     1.2 + Math.random() * 2.5,
       life:  1.0,
-      decay: (0.004 + Math.random() * 0.005) * (0.35 + speed * 0.45),
+      decay: (0.003 + Math.random() * 0.004) * (0.3 + speed * 0.4),
       color: col,
     });
   }
