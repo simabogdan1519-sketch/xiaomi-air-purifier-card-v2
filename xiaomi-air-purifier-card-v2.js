@@ -151,10 +151,10 @@ const STYLES = `
   .screen-overlay {
     position: absolute;
     /* Screen area on new images (~180x270): x=80-130, y=50-125 */
-    left: 43%;
-    top: 18%;
-    width: 30%;
-    height: 30%;
+    left: 33%;
+    top: 16%;
+    width: 38%;
+    height: 32%;
     pointer-events: all;
     z-index: 3;
   }
@@ -344,12 +344,12 @@ class XiaomiAirPurifierCardV2 extends HTMLElement {
     // Spawn from top of device, float upward
     this._particles.push({
       x:     sl + sw * (0.15 + Math.random() * 0.7),
-      y:     st - Math.random() * 8,
-      vx:    (Math.random() - 0.5) * 0.6 * speed,
-      vy:    -(0.6 + Math.random() * 1.0) * speed,
+      y:     st - 2 - Math.random() * 6,
+      vx:    (Math.random() - 0.5) * 0.5 * speed,
+      vy:    -(0.8 + Math.random() * 1.2) * speed,
       r:     1.2 + Math.random() * 2.5,
       life:  1.0,
-      decay: (0.003 + Math.random() * 0.004) * (0.3 + speed * 0.4),
+      decay: (0.002 + Math.random() * 0.003) * (0.25 + speed * 0.35),
       color: col,
     });
   }
@@ -447,7 +447,7 @@ class XiaomiAirPurifierCardV2 extends HTMLElement {
         <div class="purifier-wrap">
           <img class="purifier-png" src="${imgUrl}" alt="Air Purifier" />
           <svg class="screen-overlay" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
-            <text id="lcdMain" x="50" y="32" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',sans-serif" font-size="26" font-weight="300" fill="${lcdCol}" letter-spacing="1">${pm25Val !== null ? pm25Val : "—"}</text>
+            <text id="lcdMain" x="50" y="32" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',sans-serif" font-size="32" font-weight="300" fill="${lcdCol}" letter-spacing="1">${pm25Val !== null ? pm25Val : "—"}</text>
             <text id="lcdSub" x="50" y="46" text-anchor="middle" font-family="'SF Pro Display',Arial,sans-serif" font-size="5.5" fill="${lcdCol}" opacity="0.45" letter-spacing="1.8">AQI · PM2.5</text>
             <g id="svgPwrBtn" style="cursor:pointer"><circle cx="17" cy="67" r="5.5" fill="none" stroke="${lcdCol}" stroke-width="1.3" opacity="0.7"/><line x1="17" y1="62.5" x2="17" y2="65.5" stroke="${lcdCol}" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/></g>
             <g id="btnLeft" style="cursor:pointer"><path d="M39 63L34.5 67L39 71" stroke="${lcdCol}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/></g>
